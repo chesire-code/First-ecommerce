@@ -1,0 +1,26 @@
+{%extends "users/base.html"%}
+{% load crispy_forms_tags %}
+{% block content %}
+
+<div class="container" align="center" width="120%" style="background: #eee;">
+<div class="row" data-aos="fade-up" data-aos-delay="100" align="center">
+<div class="col-lg-3 m-5 "></div>
+<div class="col-lg-4 m-5 " align="center" style="background: white; border-radius: 30px;">
+    <form method="POST">
+        {% csrf_token %}
+        <fieldset class="form-group">
+            <legend class="border-bottom mb-4" style="font-family: arial; border-radius: 30px; width: 100%; color: white; background: rgb(70,56,100,0.5);">join us</legend>
+            {{ form | crispy }}
+        </fieldset>
+        <div class="form-group">
+            <button class="btn btn-outline-info" type="submit">sign up</button>
+        </div>
+    </form>
+
+    <div class="border-top pt-3">
+        <small class="text-muted">Already have an account?<a class="ml-2" href="{%url 'login' %}">Sign in</a></small>
+    </div>
+</div>
+</div>
+</div>
+{% endblock content %}

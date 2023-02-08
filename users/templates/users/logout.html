@@ -1,0 +1,17 @@
+{%extends "users/base.html"%}
+{% load crispy_forms_tags %}
+{% block content %}
+
+<div class="container" align="center" width="120%"style="background: #eee;">
+<div class="row" data-aos="fade-up" data-aos-delay="100" align="center">
+<div class="col-lg-3 m-5 "></div>
+<div class="col-lg-4 m-5 " align="center" style="background: white; border-radius: 30px;">
+
+    <div class="border-top pt-3" style=" height:500px; margin-top: 80px;">
+        <small class="text-muted" style="font-size: medium;">You have been logged out<br>
+            <a class="ml-2" href="{%url 'login' %}"><button class="btn btn-primary m-4">log in again</button></a></small>
+    </div>
+</div>
+</div>
+</div>
+{% endblock content %}
