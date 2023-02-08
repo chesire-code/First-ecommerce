@@ -1,0 +1,116 @@
+{%extends "AnkaraClothing/base.html"%}
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+{%if form%}
+<div class="jumbotron" style="font-size: 25px; color: rgb(80,80,80); font-family: arial;" >
+	<div class="form" style="">
+		<form method="get">
+			{% csrf_token %}
+			<fieldset class="form-group" style="margin: 8px; ">
+				{{ form.as_p }}
+
+			</fieldset>
+			<div class="form-group">
+				<button class="btn btn-success btn-lg" style="margin-left: 80px; height:50px; width: 150px; font-size: 25px;" type="submit">search</button>
+			</div>
+		</form>
+	</div>
+</div>
+{%endif%}
+
+
+<section id="" class="">
+			<div class="container">
+
+				{% if query == "" %}
+				<div class="blank" style="height: 200px; display: flex; justify-content: center;">
+					<h3>Type to search.....</h3>
+				</div>
+
+				{%else%}
+
+				{% if number_offers < 1 and number_others < 1%}
+				<h2>No results</h2>
+				{%endif%}
+				<div class="feature-content">
+					{% if number_offers > 0%}
+							<h2>Offers for {{query}}</h2>
+							<br>
+							{% for offer in offers %}
+						<div class="offer_results" style="display: flex; flex-flow: row wrap; height: auto; overflow-x: scroll; overflow-y: hidden; justify-content: start;">
+
+							<div class="product-box" style="margin: 10px; border: 0.1px solid rgb(100,100,100,0.1); border-radius: 4px; height: 350px; width: 160px;">
+								<div class="single-new-arrival">
+									<div class="single-new-arrival-bg" style="height: 150px; width: 150px;">
+										<a href="{{offer.get_absolute_url }}"><img src="{{offer.image.url}}" class="img-responsive"></a>
+
+									</div>
+									<br>
+									<div class="texts" style="">
+									<h3 style="color: green; font-family: arial;">{{offer.product_names}}</h3>
+										<p class="arrival-product-price" style="color: red;"><del>Ksh {{offer.previous_price}}</del></p>
+									<p class="arrival-product-price">Ksh {{offer.price}}</p>
+									<p class="arrival-product-price">Call 0127337789</p>
+									</div>
+								</div>
+							</div>
+							{% endfor %}
+							{%endif%}
+						</div>
+						<br>
+						<br>
+
+							{% if number_others > 0%}
+							<h2>Results for {{query}}</h2>
+							<br>
+							{%endif%}
+					<div class="others" style="display: flex; flex-flow: row wrap; height: auto; overflow-y: scroll; justify-content: start;">
+						{% for trending in smartphones %}
+
+						<div class="product-box" style="margin-right: 10px; border: 0.1px solid rgb(100,100,100,0.1); border-radius: 4px; height: 310px; width: 47%">
+							<div class="single-new-arrival">
+								<div class="single-new-arrival-bg" style="height: 150px; width: 100%;">
+									<a href="{{trending.get_absolute_url }}"><img src="{{trending.image.url}}" class="img-responsive"></a>
+
+								</div>
+								<br>
+								<div class="texts" style="">
+								<h3 style="color: green; font-family: arial;">{{trending.product_names}}</h3>
+								<p class="arrival-product-price">sh {{trending.price}}</p>
+								<p class="arrival-product-price">Call 0127337789</p>
+								</div>
+							</div>
+						</div>
+						{% endfor %}
+
+						{% for trending in chargers %}
+
+						<div class="product-box" style="margin-right: 10px; border: 0.1px solid rgb(100,100,100,0.1); border-radius: 4px; height: 310px; width: 150px;">
+							<div class="single-new-arrival">
+								<div class="single-new-arrival-bg" style="height: 150px; width: 150px;">
+									<a href="{{trending.get_absolute_url }}"><img src="{{trending.image.url}}" class="img-responsive"></a>
+
+								</div>
+								<br>
+								<div class="texts" style="">
+								<h3 style="color: green; font-family: arial;">{{trending.product_name}}</h3>
+								<p class="arrival-product-price">sh {{trending.price}}</p>
+								<p class="arrival-product-price">Call 0127337789</p>
+								</div>
+							</div>
+						</div>
+						{% endfor %}
+
+
+
+					</div>
+				</div>
+				{%endif%}
+			</div><!--/.container-->
+
+			</div>
+		</section>
+
+{% endblock content %}

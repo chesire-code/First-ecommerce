@@ -1,0 +1,65 @@
+{%extends "AnkaraClothing/base.html"%}
+{% block content %}
+<h1 style="margin-left: 20px;">{{category}}</h1>
+<div class="container" style="margin-left: 6px;">
+<br>
+<br>
+<br>
+<h2>offers</h2>
+<br>
+
+{% if offers %}
+<div class="offer_results" style="display: flex; flex-flow: row wrap; height: auto; overflow-x: scroll; overflow-y: hidden; justify-content: start;">
+{% for offer in offers %}
+						<div class="product-box" style="margin: 10px; border: 0.1px solid rgb(100,100,100,0.1); border-radius: 4px; height: 320px; width: 150px;">
+							<div class="single-new-arrival">
+								<div class="single-new-arrival-bg" style="height: 150px; width: 150px;">
+									<a href="{{offer.get_absolute_url }}"><img src="{{offer.image.url}}" class="img-responsive"></a>
+
+								</div>
+								<br>
+								<div class="texts" style="">
+								<h3 style="color: orange;">{{offer.product_name}}</h3>
+								<p class="arrival-product-price"><del style="color: rgb(250, 70, 63)" ;>sh {{offer.previous_price}}</del></p>
+									<p class="arrival-product-price">sh {{offer.price}}</p>
+									<p class="arrival-product-price">Call 0127337789</p>
+								</div>
+							</div>
+						</div>
+<br>
+<br>
+						{% endfor %}
+</div>
+{%else%}
+
+<h3>No offers </h3>
+
+{% endif%}
+<br>
+<br>
+<h2>Results</h2>
+<br>
+{% if products %}
+<div class="others" style="display: flex; flex-flow: row wrap; height: auto; overflow-y: scroll; justify-content: start;">
+{% for product in products %}
+						<div class="product-box" style="margin-right: 15px; border: 0.1px solid rgb(100,100,100,0.1); border-radius: 4px; height: 310px; width: 150px;">
+							<div class="single-new-arrival">
+								<div class="single-new-arrival-bg" style="height: 150px; width: 130px;">
+									<a href="{{product.get_absolute_url }}"><img src="{{product.image.url}}" class="img-responsive"></a>
+
+								</div>
+								<br>
+								<div class="texts" style="">
+								<h3 style="color: orange;">{{product.product_name}}</h3>
+								<p class="arrival-product-price">sh {{product.price}}</p>
+								<p class="arrival-product-price">Call 0127337789</p>
+								</div>
+							</div>
+						</div>
+						{% endfor %}
+</div>
+{%else%}
+<h3>No results</h3>
+{%endif%}
+{% endblock content %}
+</div>

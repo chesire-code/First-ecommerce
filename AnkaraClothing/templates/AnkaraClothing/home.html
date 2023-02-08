@@ -1,0 +1,326 @@
+{%extends "AnkaraClothing/base.html"%}
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+		<!--new-arrivals start -->
+<div class="form" style="display: flex; justify-content: center;">
+	<a href="{% url 'search' %}"><button class="btn btn-success my-2 my-sm-0 btn-lg" style="width: 200px; height: 40px; border-radius: 10px; font-size: 15px;">Search</button></a>
+</div>
+<br>
+<br>
+		<section id="" class="">
+			<div class="container">
+				<div class="section-header" style="text-align: left;">
+					<h3 style="font-family: arial;">Hot Offers</h3>
+					<br>
+					<br>
+				</div><!--/.section-header-->
+				<div class="offers">
+					<div class="products" style="height: 380px;
+												 overflow-x: scroll;
+												 overflow-y: hidden;
+												 display: flex;
+												 justify-content: start;
+												 text-align: center;
+											  	 margin-top: -30px;
+					">
+						{% for product in offers %}
+						<div class="product-box" style="margin: 20px; box-shadow: 0px 1px 3px 1px #1773; border-radius: 4px; height: 340px; width: 170px;display: flex; justify-content: center;">
+							<div class="single-new-arrival">
+								<div class="single-new-arrival-bg" style="height: 170px; width: 160px;">
+									<a href="{{product.get_absolute_url }}"><img src="{{product.image.url}}" class="img-responsive"></a>
+
+								</div>
+								<br>
+								<h3 style="color: rgb(40, 50, 60);">{{product.product_names}}</h3>
+								<p class="arrival-product-price"><del style="color: rgb(250, 70, 63) ;">Ksh {{product.previous_price}}</del> <br>Ksh {{product.price}}</p>
+								<p class="arrival-product-price">Call 0106039431</p>
+							</div>
+						</div>
+						{% endfor %}
+
+					</div>
+				</div>
+
+				<br>
+				<br>
+				<br>
+
+				<div class="bestsellers">
+					<h3 style="font-family: arial;">Bestsellers</h3>
+					<br>
+					<br>
+					<div class="products" style="height: 380px;
+												 overflow-x: scroll;
+												 overflow-y: hidden;
+												 display: flex;
+												 justify-content: start;
+												 text-align: center;
+											  	 margin-top: -30px;
+					">
+						{% for product in bestsellers %}
+						<div class="product-box" style="margin: 20px; box-shadow: 0px 1px 3px 1px #1773; border-radius: 4px; height: 340px; width: 170px;display: flex; justify-content: center;">
+							<div class="single-new-arrival">
+								<div class="single-new-arrival-bg" style="height: 170px; width: 160px;">
+									<a href="{{product.get_absolute_url }}"><img src="{{product.image.url}}" class="img-responsive"></a>
+
+								</div>
+								<br>
+								<h3 style="color: rgb(40, 50, 60);">{{product.product_names}}</h3>
+								<p class="arrival-product-price"><del style="color: rgb(250, 70, 63) ;">Ksh {{product.previous_price}}</del> <br>Ksh {{product.price}}</p>
+								<p class="arrival-product-price">Call 0106039431</p>
+							</div>
+						</div>
+						{% endfor %}
+
+					</div>
+				</div>
+			</div>
+				<!--/.container-->
+			</section><!--/.new-arrivals-->
+		<!--new-arrivals end -->
+
+		<!--feature start -->
+		<section id="feature" class="feature">
+			<div class="container">
+				<div class="section-header" style="text-align: left;">
+					<h2 style="font-family: arial;">What we sell</h2>
+				</div><!--/.section-header-->
+				<div class="feature-content">
+					<div class="row" style="display: flex; flex-flow: row wrap;  justify-content: center; ">
+
+							<div class="product-box" style="">
+								<div class="single-new-arrival">
+									<div class="single-new-arrival-bg" style="height: 200px; width: 240px;">
+										<a href="smartphones/"><img src="/media/images/phones.png" class="img-responsive"></a>
+									</div>
+									<br>
+									<div class="texts" style=" width: 140px;">
+									<h3 class="text-success" style="font-family: arial;">Smartphones</h3>
+									</div>
+								</div>
+							</div><div class="product-box" >
+								<div class="single-new-arrival">
+									<div class="single-new-arrival-bg" style="height: 200px; width: 240px; ">
+										<a href="televisions/"><img src="/media/images/tele.jpg" class="img-responsive"></a>
+									</div>
+									<br>
+									<div class="texts" style=" height: 100px; width: 140px;">
+									<h3 class="text-success">Televisions</h3>
+									</div>
+								</div>
+							</div><div class="product-box" >
+								<div class="single-new-arrival">
+									<div class="single-new-arrival-bg" style="height: 200px; width: 250px;">
+										<a href="speakers/"><img src="/media/images/sayona.jpg" class="img-responsive"></a>
+									</div>
+									<br>
+									<div class="texts" style=" height: 100px; width: 140px;">
+									<h3 class="text-success">Speakers</h3>
+									</div>
+								</div>
+							</div><div class="product-box" >
+								<div class="single-new-arrival">
+									<div class="single-new-arrival-bg" style="height: 200px; width: 240px;">
+										<a href="charger/"><img src="/media/images/charger.png" class="img-responsive"></a>
+									</div>
+									<br>
+									<div class="texts" >
+									<h3 class="text-success">Phone chargers</h3>
+									</div>
+								</div>
+							</div><div class="product-box">
+								<div class="single-new-arrival">
+									<div class="single-new-arrival-bg" style="height: 200px; width: 240px;">
+										<a href="covers/"><img src="/media/images/phone covers.jpg" class="img-responsive"></a>
+									</div>
+									<br>
+									<div class="texts" >
+									<h3 class="text-success">Phone covers</h3>
+									</div>
+								</div>
+							</div><div class="product-box">
+								<div class="single-new-arrival">
+									<div class="single-new-arrival-bg" style="height: 200px; width: 240px;">
+										<a href="led/"><img src="/media/images/led light.jpg" class="img-responsive"></a>
+									</div>
+									<br>
+									<div class="texts" >
+									<h3 class="text-success">LED emergency lights</h3>
+									</div>
+								</div>
+							</div><div class="product-box">
+								<div class="single-new-arrival">
+									<div class="single-new-arrival-bg" style="height: 200px; width: 240px;">
+										<a href="remote/"><img src="/media/images/remote.jpg" class="img-responsive"></a>
+									</div>
+									<br>
+									<div class="texts" >
+									<h3 class="text-success">Remote controls</h3>
+									</div>
+								</div>
+							</div><div class="product-box">
+								<div class="single-new-arrival">
+									<div class="single-new-arrival-bg" style="height: 200px; width: 240px;">
+										<a href="extension/"><img src="/media/images/extension.jpg" class="img-responsive"></a>
+									</div>
+									<br>
+									<div class="texts" >
+									<h3 class="text-success">Power extension cable</h3>
+									</div>
+								</div>
+							</div><div class="product-box">
+								<div class="single-new-arrival">
+									<div class="single-new-arrival-bg" style="height: 200px; width: 250px;">
+										<a href="earphones/"><img src="/media/images/earphones.png" class="img-responsive"></a>
+									</div>
+									<br>
+									<div class="texts" >
+									<h3 class="text-success">Earphones</h3>
+									</div>
+								</div>
+							</div><div class="product-box">
+								<div class="single-new-arrival">
+									<div class="single-new-arrival-bg" style="height: 200px; width: 240px;">
+										<a href="iron box/"><img src="/media/images/SteamIronBox.jpg" class="img-responsive"></a>
+									</div>
+									<br>
+									<div class="texts" >
+									<h3 class="text-success">Iron box</h3>
+									</div>
+								</div>
+							</div><div class="product-box">
+								<div class="single-new-arrival">
+									<div class="single-new-arrival-bg" style="height: 200px; width: 240px;">
+										<a href="stoves/"><img src="/media/images/gas stove.jpg" class="img-responsive"></a>
+									</div>
+									<br>
+									<div class="texts" >
+									<h3 class="text-success">Gas stoves</h3>
+									</div>
+								</div>
+							</div><div class="product-box">
+								<div class="single-new-arrival">
+									<div class="single-new-arrival-bg" style="height: 200px; width: 240px;">
+										<a href="electric kettle/"><img src="/media/images/electric kettle.jpg" class="img-responsive"></a>
+									</div>
+									<br>
+									<div class="texts" >
+									<h3 class="text-success">Electric kettle</h3>
+									</div>
+								</div>
+							</div><div class="product-box">
+								<div class="single-new-arrival">
+									<div class="single-new-arrival-bg" style="height: 200px; width: 240px;">
+										<a href="electric jug/"><img src="/media/images/electric jug.jpeg" class="img-responsive"></a>
+									</div>
+									<br>
+									<div class="texts" >
+									<h3 class="text-success">Electric jug</h3>
+									</div>
+								</div>
+							</div><div class="product-box">
+								<div class="single-new-arrival">
+									<div class="single-new-arrival-bg" style="height: 200px; width: 250px;">
+										<a href="USB drive/"><img src="/media/images/usb drive.jpg" class="img-responsive"></a>
+									</div>
+									<br>
+									<div class="texts" >
+									<h3 class="text-success">USB drive</h3>
+									</div>
+								</div>
+							</div>
+
+							<div class="product-box">
+								<div class="single-new-arrival">
+									<div class="single-new-arrival-bg" style="height: 200px; width: 250px;">
+										<a href="Memory card/"><img src="/media/images/memory card.png" class="img-responsive"></a>
+									</div>
+									<br>
+									<div class="texts" >
+									<h3 class="text-success">Memory card</h3>
+									</div>
+								</div>
+							</div>
+
+					</div>
+				</div><!--/.container-->
+			</div>
+		</section><!--/.feature-->
+		<!--feature end -->
+
+		<section id="newsletter"  class="newsletter">
+			<div class="container">
+				<div class="hm-footer-details">
+					<div class="row">
+						<div class=" col-md-3 col-sm-6 col-xs-12">
+							<div class="hm-footer-widget">
+								<div class="hm-foot-title">
+									<h4>information</h4>
+								</div><!--/.hm-foot-title-->
+								<div class="hm-foot-menu">
+									<ul>
+										<li><a href="#">about us</a></li><!--/li-->
+										<li><a href="#">contact us</a></li><!--/li-->
+										<li><a href="#">news</a></li><!--/li-->
+										<li><a href="#">store</a></li><!--/li-->
+									</ul><!--/ul-->
+								</div><!--/.hm-foot-menu-->
+							</div><!--/.hm-footer-widget-->
+						</div><!--/.col-->
+						<div class=" col-md-3 col-sm-6 col-xs-12">
+							<div class="hm-footer-widget">
+								<div class="hm-foot-title">
+									<h4>collections</h4>
+								</div><!--/.hm-foot-title-->
+								<div class="hm-foot-menu">
+									<ul>
+										<li><a href="#">wooden chair</a></li><!--/li-->
+										<li><a href="#">royal cloth sofa</a></li><!--/li-->
+										<li><a href="#">accent chair</a></li><!--/li-->
+										<li><a href="#">bed</a></li><!--/li-->
+										<li><a href="#">hanging lamp</a></li><!--/li-->
+									</ul><!--/ul-->
+								</div><!--/.hm-foot-menu-->
+							</div><!--/.hm-footer-widget-->
+						</div><!--/.col-->
+
+						<div class=" col-md-4 col-sm-6  col-xs-12">
+							<div class="hm-footer-widget">
+								<div class="hm-foot-title">
+									<h4>Updates</h4>
+								</div><!--/.hm-foot-title-->
+								<div class="hm-foot-para">
+									<h5>
+										Chat with us in our WhatsApp business account  to get latest news, update and information. <u style="color: green;">0721345678</u>
+									</h5>
+								</div><!--/.hm-foot-para-->
+
+							</div><!--/.hm-footer-widget-->
+						</div><!--/.col-->
+
+						<div class=" col-md-6  col-xs-12">
+							<div class="hm-footer-widget">
+								<div class="hm-foot-title">
+									<h4>Location</h4>
+								</div><!--/.hm-foot-title-->
+								<!--Google map-->
+								<div class="mapouter"><div class="gmap_canvas"><iframe width="100%" height="500" id="gmap_canvas" src="https://maps.google.com/maps?q=G78G+PFC,%20Stendi%20Kisa%20-%20Yala%20Rd,%20Eldoret&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe><a href="https://123movies-to.org">123movies</a><br><style>.mapouter{position:relative;text-align:right;height:500px;width:100%;}</style><a href="https://www.embedgooglemap.net"></a><style>.gmap_canvas {overflow:hidden;background:none!important;height:500px;width:100%;}</style></div></div>
+
+<!--Google Maps-->
+
+							</div><!--/.hm-footer-widget-->
+						</div><!--/.col-->
+					</div><!--/.row-->
+				</div><!--/.hm-footer-details-->
+
+			</div><!--/.container-->
+
+		</section><!--/newsletter-->	
+		<!--newsletter end -->
+
+		<!--footer start-->
+
+
+{% endblock content %}

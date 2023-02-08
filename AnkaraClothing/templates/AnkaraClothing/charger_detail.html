@@ -1,0 +1,38 @@
+ {%extends "AnkaraClothing/base.html"%}
+
+{% block content %}
+ <div class="content" style="height: 800px;">
+     <div class="row">
+            <a href="{% url 'home' %}"><i class="las la-arrow-circle-left" id="return" style="font-size: xx-large; color: grey; margin-left: 50px; margin-top: 50px; cursor: pointer;"></i></a>
+        </div>
+    <div class="row" style="height: 80%; margin-top: 30px; margin: 50px; text-align: center; font-family: arial;">
+        <div class="col-md-2" ></div>
+        <div class="col-md-4" style="height: 50%;">
+            <img src="{{object.image.url}}" class="img-responsive" style="height: 100%;"/>
+        </div>
+        <div class="col-md-3">
+            <div style="display: flex; justify-content: space-between;">
+                 <h3 style="margin-right: -20px; font-family: arial;">Name: </h3><p>{{object.product_name}}</p>
+            </div>
+
+            <div style="display: flex; justify-content: space-between;">
+                 <h3 style="margin-right: -20px; font-family: arial;">price:  </h3><p><del>Ksh &nbsp {{object.previous_price}}</del> &nbsp &nbsp Ksh &nbsp  {{object.price}}</p>
+            </div>
+            <div style="display: flex; justify-content: space-between;">
+                 <h3 style="margin-right: -20px; font-family: arial;">colour:  </h3><p>{{object.color}}</p>
+            </div>
+
+            <div>
+            {% if object.in_stock > 1 %}
+                <div style="display: flex; justify-content: space-between;">
+                    <h3 style="margin-right: -20px; font-family: arial;">in stock: </h3><p>{{object.in_stock}}</p>
+                </div>
+
+            {% endif %}
+            </div>
+            <br>
+        </div>
+        <div class="col-md-6" ></div>
+        </div>
+    </div>
+{% endblock content %}

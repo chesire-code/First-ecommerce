@@ -1,0 +1,27 @@
+ {%extends "AnkaraClothing/base.html"%}
+
+ <title>{{object.product_name}}</title>
+
+{% block content %}
+
+ <div class="content" style="height: 800px;">
+        <div class="">
+            <a href="{% url 'home' %}"><i class="las la-arrow-circle-left" id="return" style="font-size: xx-large; color: grey; margin-left: 50px; cursor: pointer;"></i></a>
+        </div>
+
+    <div class="row" style="height: auto; margin: 50px; text-align: center; font-family: arial;">
+
+        <div class="" style="height:250px">
+            <img src="{{object.image.url}}" class="img-responsive" style=""/>
+        </div>
+        <div class="display: block;">
+                 <h3 style=" font-family: arial;"><p>{{object.descriptions}}</p></h3>
+                 <h3 style="font-family: arial;"><p>Ksh {{object.price}}</p></h3>
+                 <h3 style="font-family: arial;">Call 0721345678</p></h3><p>
+
+            <br>
+           </div>
+        </div>
+    </div>
+
+{% endblock content %}
